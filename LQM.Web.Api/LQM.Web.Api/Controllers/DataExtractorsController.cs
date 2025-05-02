@@ -23,14 +23,14 @@ namespace LQM.Web.Api.Controllers
         [Route("MethodAsync")]
         public async ValueTask<ActionResult> MethodAsync(string bankName, IFormFile file)
         {
-            var response = await this._dataExtractorService.MethodAsync(file);
+            var response = await this._dataExtractorService.MethodAsync(bankName, file);
 
             return response.StatusCode switch
             {
                 StatusCodes.Status200OK => File(
-                    response.Data, 
-                    "text/csv", 
-                    $"{bankName}_Output_Data_{DateTimeOffset.Now.ToString("yyyy-MM-ddTHH:mm:sszzz")}.csv"),
+                    response.Data!.Data, 
+                    response.Data.ContentType, 
+                    $"{bankName}_Output_At_{DateTimeOffset.Now.ToString("yyyy-MM-ddTHH:mm:sszzz")}{response.Data.Extension}"),
                 _ => StatusCode(response.StatusCode, response)
             };
         }

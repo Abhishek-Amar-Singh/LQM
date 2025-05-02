@@ -1,5 +1,5 @@
-﻿using System.Reflection.PortableExecutable;
-using System.Text;
+﻿using System.Text;
+using LQM.Web.Api.Models;
 using LQM.Web.Api.Models.DataExtractors;
 using LQM.Web.Api.Models.DataExtractors.Exceptions;
 using Shared.Space.Lib.Models;
@@ -8,10 +8,15 @@ namespace LQM.Web.Api.Services.DataExtractors
 {
     public partial class DataExtractorService : IDataExtractorService
     {
-        public async ValueTask<Response<byte[]>> MethodAsync(IFormFile file)
+        public async ValueTask<Response<FileContentRes>> MethodAsync(string bankName, IFormFile file)
         {
             try
             {
+                ValidateIfBankNameNotProvided(bankName);
+                ValidateIfFileProvided(file);
+                (string fileExtension, string fileContentType) = ValidateFileContentTypeAndExtension(file, ".csv");
+                await ValidateIfDataIsCorruptInCSVFileAsync(file);
+
                 var headerAsKeyDataAsValsDict = await this.ConvertCSVToDictAsync(file);
 
                 var outputHeaders = new string[4] {
@@ -37,7 +42,12 @@ namespace LQM.Web.Api.Services.DataExtractors
 
                 return new()
                 {
-                    Data = fileInBytes
+                    Data = new()
+                    {
+                        Data = fileInBytes,
+                        Extension = fileExtension,
+                        ContentType = fileContentType
+                    }
                 };
             }
             catch (MyCustomException myCustomEx)

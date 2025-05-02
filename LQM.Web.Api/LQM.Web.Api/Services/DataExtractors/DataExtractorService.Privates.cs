@@ -13,7 +13,6 @@ namespace LQM.Web.Api.Services.DataExtractors
             IDictionary<string, List<string>> headerAsKeyDataAsValsDict =
                 new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
 
-
             using var stream = file.OpenReadStream();
             using var reader = new StreamReader(stream);
             while (!reader.EndOfStream)

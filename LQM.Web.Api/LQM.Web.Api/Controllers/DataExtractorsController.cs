@@ -12,13 +12,6 @@ namespace LQM.Web.Api.Controllers
         public DataExtractorsController(IDataExtractorService _dataExtractorService) =>
             this._dataExtractorService = _dataExtractorService;
 
-        [HttpGet]
-        [Route("GetData")]
-        public ActionResult GetData()
-        {
-            return StatusCode(StatusCodes.Status200OK, "DataExtractorsController");
-        }
-
         [HttpPost]
         [Route("ExtractCSVAsync")]
         public async ValueTask<ActionResult> ExtractCSVAsync(string bankName, IFormFile file)

@@ -6,6 +6,6 @@ namespace LQM.Web.Api.Services.DataExtractors
 {
     public interface IDataExtractorService
     {
-        ValueTask<Response<FileContentRes>> MethodAsync(string bankName, IFormFile file);
+        ValueTask<Response<FileContentRes>> ExtractCSVAsync(string bankName, IFormFile file);
     }
 }

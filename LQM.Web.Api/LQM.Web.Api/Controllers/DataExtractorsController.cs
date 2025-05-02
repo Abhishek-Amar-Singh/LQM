@@ -20,10 +20,10 @@ namespace LQM.Web.Api.Controllers
         }
 
         [HttpPost]
-        [Route("MethodAsync")]
-        public async ValueTask<ActionResult> MethodAsync(string bankName, IFormFile file)
+        [Route("ExtractCSVAsync")]
+        public async ValueTask<ActionResult> ExtractCSVAsync(string bankName, IFormFile file)
         {
-            var response = await this._dataExtractorService.MethodAsync(bankName, file);
+            var response = await this._dataExtractorService.ExtractCSVAsync(bankName, file);
 
             return response.StatusCode switch
             {

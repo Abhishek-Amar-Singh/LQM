@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LQM.Web.Api", "LQM.Web.Api\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Space.Lib", "Shared.Space.Lib\Shared.Space.Lib.csproj", "{AD3730BC-1D2E-47ED-BEA0-FE948A9CF7CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LQM.Web.Api.Unit.Tests", "LQM.Web.Api.Unit.Tests\LQM.Web.Api.Unit.Tests.csproj", "{235D14FE-2954-4FC3-A0AF-6FEA2C964888}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AD3730BC-1D2E-47ED-BEA0-FE948A9CF7CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD3730BC-1D2E-47ED-BEA0-FE948A9CF7CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD3730BC-1D2E-47ED-BEA0-FE948A9CF7CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{235D14FE-2954-4FC3-A0AF-6FEA2C964888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{235D14FE-2954-4FC3-A0AF-6FEA2C964888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{235D14FE-2954-4FC3-A0AF-6FEA2C964888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{235D14FE-2954-4FC3-A0AF-6FEA2C964888}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
